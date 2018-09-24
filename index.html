@@ -278,40 +278,40 @@
         gl.bindBuffer(gl.ARRAY_BUFFER, CubeVertexPositionBuffer)
         vertices = [
           // Front face
-        -1.0, -1.0,  1.0,
-        1.0, -1.0,  1.0,
-        1.0,  1.0,  1.0,
-        -1.0,  1.0,  1.0,
+        -2.0, -2.0,  2.0,
+        2.0, -2.0,  2.0,
+        2.0,  2.0,  2.0,
+        -2.0,  2.0,  2.0,
 
         // Back face
-        -1.0, -1.0, -1.0,
-        -1.0,  1.0, -1.0,
-        1.0,  1.0, -1.0,
-        1.0, -1.0, -1.0,
+        -2.0, -2.0, -2.0,
+        -2.0,  2.0, -2.0,
+        2.0,  2.0, -2.0,
+        2.0, -2.0, -2.0,
 
         // Top face
-        -1.0,  1.0, -1.0,
-        -1.0,  1.0,  1.0,
-        1.0,  1.0,  1.0,
-        1.0,  1.0, -1.0,
+        -2.0,  2.0, -2.0,
+        -2.0,  2.0,  2.0,
+        2.0,  2.0,  2.0,
+        2.0,  2.0, -2.0,
 
         // Bottom face
-        -1.0, -1.0, -1.0,
-        1.0, -1.0, -1.0,
-        1.0, -1.0,  1.0,
-        -1.0, -1.0,  1.0,
+        -2.0, -2.0, -2.0,
+        2.0, -2.0, -2.0,
+        2.0, -2.0,  2.0,
+        -2.0, -2.0,  2.0,
 
         // Right face
-        1.0, -1.0, -1.0,
-        1.0,  1.0, -1.0,
-        1.0,  1.0,  1.0,
-        1.0, -1.0,  1.0,
+        2.0, -2.0, -2.0,
+        2.0,  2.0, -2.0,
+        2.0,  2.0,  2.0,
+        2.0, -2.0,  2.0,
 
         // Left face
-        -1.0, -1.0, -1.0,
-        -1.0, -1.0,  1.0,
-        -1.0,  1.0,  1.0,
-        -1.0,  1.0, -1.0,
+        -2.0, -2.0, -2.0,
+        -2.0, -2.0,  2.0,
+        -2.0,  2.0,  2.0,
+        -2.0,  2.0, -2.0,
         ]
         gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(vertices), gl.STATIC_DRAW)
         CubeVertexPositionBuffer.itemSize = 3
@@ -359,7 +359,7 @@
         gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT)
         mat4.perspective(pMatrix, glMatrix.toRadian(45), gl.viewportWidth / gl.viewportHeight, 0.1, 100.0)
         mat4.identity(mvMatrix)
-        mat4.translate(mvMatrix, mvMatrix, [0.0, 0.0, -13.0])
+        mat4.translate(mvMatrix, mvMatrix, [0.0, 0.0, -10.0])
         mvPushMatrix()
         mat4.rotate(mvMatrix, mvMatrix, glMatrix.toRadian(rA), [0.0, 1.0, 0.0])
         //mat4.rotateY(mvMatrix, mvMatrix, glMatrix.toRadian(rA))
@@ -371,7 +371,7 @@
         setMatrixUniforms()
         gl.drawElements(gl.TRIANGLES, AVertexIndexBuffer.numItems, gl.UNSIGNED_SHORT, 0);
         mvPopMatrix()
-        mat4.translate(mvMatrix, mvMatrix, [0.0, 0.0, 8.0])
+        mat4.translate(mvMatrix, mvMatrix, [0.0, 0.0, 1])
         mvPushMatrix()
         mat4.rotate(mvMatrix, mvMatrix, glMatrix.toRadian(rCube), [1.0, 0.0, 0.0])
         //mat4.rotateX(mvMatrix, mvMatrix, glMatrix.toRadian(rCube))
