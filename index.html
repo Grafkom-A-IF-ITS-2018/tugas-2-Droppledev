@@ -365,7 +365,7 @@
         setMatrixUniforms()
         gl.drawElements(gl.TRIANGLES, AVertexIndexBuffer.numItems, gl.UNSIGNED_SHORT, 0);
         mvPopMatrix()
-        mat4.translate(mvMatrix, mvMatrix, [-posXA, -posYA, -10-posZA])
+        mat4.translate(mvMatrix, mvMatrix, [-posXA, -posYA, -9-posZA])
         mvPushMatrix()
         mat4.rotate(mvMatrix, mvMatrix, glMatrix.toRadian(rCube), [1.0, 0.0, 0.0])
         //mat4.rotateX(mvMatrix, mvMatrix, glMatrix.toRadian(rCube))
@@ -387,17 +387,17 @@
           rCube += (75 * elapsed) / 1000.0
 
           // Animate Pos of 'A'
-          var temp = (3 * elapsed) / 1000.0
+          var temp = (3 * elapsed) / 2000.0
           if (posXA+temp >= 1.5 || posXA-temp <= -1.5 ){
             dirXA *= -1 
           }
           posXA+= (dirXA*temp)
-          temp = (-1.5 * elapsed) / 1000.0
-          if (posYA+temp >= 1.5 || posYA-temp <= -1.5 ){
+          temp = (-1.5 * elapsed) / 2000.0
+          if (posYA+temp >= 1 || posYA-temp <= -1 ){
             dirYA *= -1 
           }
           posYA+= (dirYA*temp)
-          temp = (1 * elapsed) / 1000.0
+          temp = (1 * elapsed) / 2000.0
           if (posZA+temp >= 1.5 || posZA-temp <= -1.5 ){
             dirZA *= -1 
           }
